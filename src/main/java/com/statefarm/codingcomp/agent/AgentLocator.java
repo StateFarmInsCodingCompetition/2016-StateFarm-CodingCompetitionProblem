@@ -1,8 +1,10 @@
 package com.statefarm.codingcomp.agent;
 
 import java.util.ArrayList;
+import java.util.Hashtable;
 import java.util.List;
 import java.util.Map;
+import java.util.Set;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
@@ -63,6 +65,27 @@ public class AgentLocator {
 	}
 
 	public String mostPopularFirstName() {
+		Hashtable<String, Integer> count = new Hashtable<String, Integer>();
+		List<String> agents = sfFileReader.findAgentFiles();
+		List<Agent> agentList = new ArrayList<Agent>();
+		int max = 0;
+		for (String agent : agents) {
+			String name = agentParser.parseAgent(agent).getName();
+			if (count.contains(name)) {
+				count.put(name, count.get(name) + 1);
+			} else {
+				count.put(name, 1);
+			}
+			if (count.get(name) > max) {
+				max = count.get(name);
+			}
+		}
+		Set<String> keyset = count.keySet();
+		for (String k : keyset) {
+			if (count.get(k) == max) {
+				return k;
+			}
+		}
 		return null;
 	}
 
