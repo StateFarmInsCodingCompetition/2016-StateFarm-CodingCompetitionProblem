@@ -1,5 +1,6 @@
 package com.statefarm.codingcomp.agent;
 
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
 
@@ -32,6 +33,8 @@ public class AgentLocator {
 	 * @return
 	 */
 	public List<Agent> getAgentsByName(String firstName, String lastName) {
+		List<Agent> AgentsByName = new ArrayList<Agent>();
+		
 		return null;
 	}
 
@@ -42,6 +45,8 @@ public class AgentLocator {
 	 * @return
 	 */
 	public List<Agent> getAgentsByState(USState state) {
+		List<Agent> AgentsByState = new ArrayList<Agent>();
+		
 		return null;
 	}
 
