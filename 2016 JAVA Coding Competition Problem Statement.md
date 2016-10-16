@@ -8,15 +8,15 @@ Examples:
  - Windows: `C:\users\username\`   
  - Linux: `/home/username/`   
 
-Please scan the website found in the .zip file and provide answers to the following questions/Junits.  You can use the included jsoup framework or another technology of your choice:	  
+Please scan the website found in the .zip file and provide answers to the following questions/Junits.  You can use the included jsoup framework or another technology of your choice:   
 
  - AgentParserTest – Complete these tests first.
-	 - For a specific agent return the products they are licensed to sell
-	 - For a specific agent return all the associated data: 
-		- name 
-		- languages (uses title element in div tag vs text element)
-		- address (Street Address)
-		- etc.
+   - For a specific agent return the products they are licensed to sell
+   - For a specific agent return all the associated data: 
+    - name 
+    - languages (uses title element in div tag vs text element)
+    - address (Street Address)
+    - etc.
 - AgentLocatorTest
   - Find a single agent by first and last name
   - Find multiple agents by last name/first name
@@ -74,5 +74,3 @@ Bonus Credit – Do not complete any bonus features unless you have completed al
   - Find common words
   - Other creative analysis
 - If you can think of any other useful features to add, we appreciate ingenuity and will gladly accept any useful enhancements.  Be sure to document any bonus features in the feedback text file.  
-
-
