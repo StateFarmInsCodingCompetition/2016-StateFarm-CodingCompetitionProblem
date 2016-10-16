@@ -33,11 +33,13 @@ public class AgentLocator {
 	 * @return
 	 */
 	public List<Agent> getAgentsByName(String firstName, String lastName) {
+		
+		AgentParser ag = new AgentParser();
 		List<Agent> AgentsByName = new ArrayList<Agent>();
 		
 		// I'm assuming sfFileReader somehow gets filenames; then I'm getting all the agents with agentParser
 		for(fileName: ????){
-			Agent a = agentParser.parseAgent(fileName);
+			Agent a = ag.parseAgent(fileName);
 			
 			// what's last name??
 			if(a.getName().equals(firstName) && ){
@@ -56,17 +58,19 @@ public class AgentLocator {
 	 * @return
 	 */
 	public List<Agent> getAgentsByState(USState state) {
+		AgentParser ag = new AgentParser();
 		List<Agent> AgentsByState = new ArrayList<Agent>();
 		
 		return AgentsByState;
 	}
 
 	public List<Agent> getAllAgents() {
+		AgentParser ag = new AgentParser();
 		List<Agent> allAgents = new ArrayList<Agent>();
 		
 		// I'm assuming sfFileReader somehow gets filenames; then I'm getting all the agents with agentParser
 		for(fileName: ????){
-			allAgents.add(agentParser.parseAgent(fileName));	
+			allAgents.add(ag.parseAgent(fileName));	
 		}
 		
 		return allAgents;
@@ -80,7 +84,27 @@ public class AgentLocator {
 	}
 
 	public String mostPopularFirstName() {
-		return null;
+		
+		HashMap<String, Integer> nameN = new HashMap<String, Integer>();
+		// Where do the names come from?
+		for(String s: names...){
+			if(nameN.containsKey(s)){
+				nameN.put(s, nameN.get(s)+1);
+			}else{
+				nameN.put(s, 1);
+			}
+		}
+		
+		// add exception if it's empty?
+		String mostPopular = nameN.keySet().iterator().next();
+		
+		for(String k: nameN.keySet()){
+			if(nameN.get(k) > nameN.get(mostPopular)){
+				mostPopular = k;
+			}
+		}
+		
+		return mostPopular;
 
 	}
 
