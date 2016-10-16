@@ -10,13 +10,13 @@ Examples:
 
 Please scan the website found in the .7z file and provide answers to the following questions/Junits.  You can use the included jsoup framework or another technology of your choice:   
 
- - AgentParserTest – Complete these tests first.
-   - For a specific agent return the products they are licensed to sell
-   - For a specific agent return all the associated data: 
-    - name 
-    - languages (uses title element in div tag vs text element)
-    - address (Street Address)
-    - etc.
+- AgentParserTest – Complete these tests first.
+  - For a specific agent return the products they are licensed to sell
+  - For a specific agent return all the associated data: 
+  - name 
+  - languages (uses title element in div tag vs text element)
+  - address (Street Address)
+  - etc.
 - AgentLocatorTest
   - Find a single agent by first and last name
   - Find multiple agents by last name/first name
