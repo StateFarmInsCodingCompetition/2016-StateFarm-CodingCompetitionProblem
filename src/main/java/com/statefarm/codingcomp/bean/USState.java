@@ -71,7 +71,7 @@ public enum USState {
 	 */
 	public static USState fromValue(String textValue) {
 		for(USState s : values()) {
-			if(s.value.equalsIgnoreCase(textValue)) {
+			if(s.value.equalsIgnoreCase(textValue) || s.toString().equals(textValue)) {
 				return s;
 			}
 		}

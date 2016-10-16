@@ -1,5 +1,14 @@
 package com.statefarm.codingcomp.bean;
 
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
+
+import org.jsoup.Jsoup;
+import org.jsoup.helper.Validate;
+import org.jsoup.nodes.Document;
+import org.jsoup.nodes.Element;
+import org.jsoup.select.Elements;
+
 public class Address {
 	private String line1;
 	private String line2;
@@ -46,4 +55,35 @@ public class Address {
 	public void setPostalCode(String postalCode) {
 		this.postalCode = postalCode;
 	}
+
+
+        public static Address parseAddress(String addressHtml)
+        {
+            Address retval = new Address();
+
+            Document doc = Jsoup.parse(addressHtml);
+            Pattern firstLine = Pattern.compile("locStreetContent_.");
+                                                                                                // We need to capture the <br> if
+                                                                                                // it's there
+            String streetNumber = doc.getElementsByAttributeValueMatching("id", firstLine)
+                .first()
+                .html();
+            if(streetNumber.indexOf("<br>") != -1)
+            {
+                String[] lines = streetNumber.replace(",", "").split("<br>");
+                retval.setLine1(lines[0]);
+                retval.setLine2(lines[1]);
+            }
+            else
+            {
+                retval.setLine1(streetNumber);
+            }
+
+            retval.setCity(doc.getElementsByAttributeValue("itemprop", "addressLocality").first().text().replace(",",""));
+
+            retval.setState(USState.fromValue(doc.getElementsByAttributeValue("itemprop", "addressRegion").first().text()));
+            
+            retval.setPostalCode(doc.getElementsByAttributeValue("itemprop", "postalCode").first().text());
+            return retval;
+        }
 }
