@@ -86,6 +86,22 @@
 			<artifactId>jsoup</artifactId>
 			<version>1.9.2</version>
 		</dependency>
+		<dependency>
+			<groupId>java.util</groupId>
+			<artifactId>ArrayList</artifactId>
+		</dependency>
+		<dependency>
+			<groupId>java.util</groupId>
+			<artifactId>List</artifactId>
+		</dependency>
+		<dependency>
+			<groupId>java.util</groupId>
+			<artifactId>regex.Matcher</artifactId>
+		</dependency>
+		<dependency>
+			<groupId>java.util</groupId>
+			<artifactId>regex.Pattern</artifactId>
+		</dependency>
 	</dependencies>
 
 	<build>
