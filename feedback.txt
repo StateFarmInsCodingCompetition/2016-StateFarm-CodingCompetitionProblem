@@ -1,10 +1,12 @@
-Team Names:
-How many JUnits were you able to get to pass?
+Team Names: Ankur Sundara, Aashish Welling
+How many JUnits were you able to get to pass? All tests (34/34)
 
 Document and describe any enhancements included to help the judges properly grade your submission.
-	Step 1:
-	Step 2: 
-	
-	
-Feedback for the coding competition?  Things you would like to see in future events?  
+	Step 1: Created a web server using sparkjava to easily search for agents and browse their attributes
+	        (Uses bootstrap for frontend and Velocity for template rendering)
+	       
+	        run the main method in com.statefarm.codingcomp.webui.Main and visit localhost:4567
+
+
+Feedback for the coding competition?  Things you would like to see in future events?
 	*You have the option to send feedback to codingcompetition@statefarm.com after the competition if you are running short on time.
