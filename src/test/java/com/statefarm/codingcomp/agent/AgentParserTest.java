@@ -4,6 +4,7 @@ import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertTrue;
 import static org.unitils.reflectionassert.ReflectionAssert.assertLenientEquals;
 
+import java.io.IOException;
 import java.nio.file.Paths;
 import java.util.ArrayList;
 import java.util.Arrays;
@@ -48,16 +49,25 @@ public class AgentParserTest {
 		debbiePeckWebsitePath = Paths.get("src", "test", "resources", "DebbiePeck.html").toString();
 		
 		expectedAgent1 = createExpectedAgent1();
-		actualAgent1 = agentParser.parseAgent(kevinParksWebsitePath);
+		try {
+			actualAgent1 = agentParser.parseAgent(kevinParksWebsitePath);
+		} catch (IOException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
 		
 		expectedAgent2 = createExpectedAgent2();
-		actualAgent2 = agentParser.parseAgent(debbiePeckWebsitePath);
+		try {
+			actualAgent2 = agentParser.parseAgent(debbiePeckWebsitePath);
+		} catch (IOException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
 	}
 	
 
 	@Test
 	public void canLoadAllProducts() {
-
 		assertEquals(expectedAgent1.getProducts(), actualAgent1.getProducts());
 	}
 	
@@ -324,4 +334,7 @@ public class AgentParserTest {
 		
 		return expectedAgent2;
 	}
+
 }
+
+

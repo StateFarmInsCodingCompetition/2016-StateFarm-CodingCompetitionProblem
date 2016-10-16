@@ -1,10 +1,13 @@
-Team Names:
-How many JUnits were you able to get to pass?
+Team Names:  ejohnson377
+How many JUnits were you able to get to pass?:  7
 
 Document and describe any enhancements included to help the judges properly grade your submission.
 	Step 1:
 	Step 2: 
 	
 	
-Feedback for the coding competition?  Things you would like to see in future events?  
+Feedback for the coding competition?  Things you would like to see in future events? 
+
+Liked the addition of using GitHub this time, it made submitting code very simple.  I imagine it would have helped sharing code between teammates as well, had anyone decided to work with me on this.  Thought the overall process of the competition went smoothly.  
+
 	*You have the option to send feedback to codingcompetition@statefarm.com after the competition if you are running short on time.
