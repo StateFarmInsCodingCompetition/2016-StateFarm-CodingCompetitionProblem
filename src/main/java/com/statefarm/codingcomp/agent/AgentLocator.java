@@ -4,6 +4,7 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
+import java.util.Map.Entry;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
@@ -25,28 +26,6 @@ public class AgentLocator {
 	@Autowired
 	private SFFileReader sfFileReader;
 	
-	private List<String> htmlFiles = sfFileReader.findHtmlFiles();
-	private List<String> agentFiles = sfFileReader.findAgentFiles();
-	
-	private Map<String, Agent> agentsByHTML = getAgentsByHTML();
-	private Map<String, Agent> agentsByAgentFiles = getAgentsByAgentFiles();
-	
-	private Map<String, Agent> getAgentsByHTML() {
-		Map<String, Agent> agents = new HashMap<String, Agent>();
-		for (String html : htmlFiles) {
-			agents.put(html, agentParser.parseAgent(html));
-		}
-		return agents;
-	}
-	
-	private Map<String, Agent> getAgentsByAgentFiles() {
-		Map<String, Agent> agents = new HashMap<String, Agent>();
-		for (String html : agentFiles) {
-			agents.put(html, agentParser.parseAgent(html));
-		}
-		return agents;
-	}
-	
 	
 	/**
 	 * Find agents where the URL of their name contains the firstName and
@@ -58,10 +37,11 @@ public class AgentLocator {
 	 * @return
 	 */
 	public List<Agent> getAgentsByName(String firstName, String lastName) {
+		List<String> myList = sfFileReader.findHtmlFiles();
 		List<Agent> myAgents = new ArrayList<Agent>();
-		for (String html : htmlFiles) {
-		    if ((html.trim().contains(firstName + "-")) && (html.trim().contains("-" + lastName))){
-		    	myAgents.add(agentsByHTML.get(html));
+		for(String str: myList) {
+		    if((str.trim().contains(firstName + "-")) && (str.trim().contains("-" + lastName))){
+		    	myAgents.add(agentParser.parseAgent(str));
 		    }
 		}
 		return myAgents;
@@ -90,7 +70,12 @@ public class AgentLocator {
 	}
 
 	public List<Agent> getAllAgents() {
-		return null;
+		List<String> agentFiles = sfFileReader.findAgentFiles();
+		List<Agent> agents = new ArrayList<Agent>();
+		for (String str: agentFiles) {
+		    agents.add(agentParser.parseAgent(str));
+		}
+		return agents;
 	}
 	
 	public Map<String, List<Agent>> getAllAgentsByUniqueFullName() {
