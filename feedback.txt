@@ -1,5 +1,5 @@
-Team Names:
-How many JUnits were you able to get to pass?
+Team Names: Caleb Ji, Sam Heil
+How many JUnits were you able to get to pass? 24/24 for AgentParser, /9 for AgentLocator
 
 Document and describe any enhancements included to help the judges properly grade your submission.
 	Step 1:

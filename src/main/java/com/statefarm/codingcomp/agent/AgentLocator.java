@@ -33,9 +33,9 @@ public class AgentLocator {
 	 * @return
 	 */
 	public List<Agent> getAgentsByName(String firstName, String lastName) {
-		//String name = 
+		
 		// AgentParser ag = new AgentParser();
-	/*	
+		
 		List<Agent> all = getAllAgents();
 		
 		List<Agent> AgentsByName = new ArrayList<Agent>();
@@ -43,17 +43,14 @@ public class AgentLocator {
 		// I'm assuming sfFileReader somehow gets filenames; then I'm getting all the agents with agentParser
 		for(Agent a: all){
 			
-			// what's last name??
-			if(a.getName().equals(firstName) && ){
+			String[] aName = a.getName().split(" ");
+			if (aName[0].equals(firstName) && aName[1].equals(lastName))
 				AgentsByName.add(a);
-			}
 			
 		}
 		
-		return AgentsByName;*/
-		return null;
-	}
-
+		return AgentsByName;
+}
 	/**
 	 * Find agents by state.
 	 * 
@@ -96,7 +93,7 @@ public class AgentLocator {
 		return names;
 	}
 
-	public String mostPopularFirstName() {
+    /*public String mostPopularFirstName() {
 		
 		HashMap<String, Integer> nameN = new HashMap<String, Integer>();
 		
@@ -121,15 +118,84 @@ public class AgentLocator {
 		
 		return mostPopular;
 
+	}*/
+    
+    public String mostPopularFirstName() {
+		List<Agent> all = getAllAgents();
+		HashMap<String, Integer> firstNameCount = new HashMap<String, Integer>();
+		String[] pieces;
+		String firstName;
+		for (Agent a: all) {
+			pieces = a.getName().split(" ");
+			firstName = pieces[0];
+			if (!firstNameCount.containsKey(firstName)) {
+				firstNameCount.put(firstName, 1);
+			} else {
+				firstNameCount.put(firstName, firstNameCount.get(firstName)+1);
+			}
+		}
+		String best="";
+		int maxCount = -1;
+		for (String s: firstNameCount.keySet()) {
+			if (firstNameCount.get(s) > maxCount) {
+				maxCount = firstNameCount.get(s);
+				best = s;
+			}
+		}
+		return best;
 	}
 
-	public String mostPopularLastName() {
-		return null;
+    
 
+	public String mostPopularLastName() {
+		List<Agent> all = getAllAgents();
+		HashMap<String, Integer> lastNameCount = new HashMap<String, Integer>();
+		String[] pieces;
+		String lastName;
+		for (Agent a: all) {
+			pieces = a.getName().split(" ");
+			lastName = pieces[1];
+			if (!lastNameCount.containsKey(lastName)) {
+				lastNameCount.put(lastName, 1);
+			} else {
+				lastNameCount.put(lastName, lastNameCount.get(lastName)+1);
+			}
+		}
+		String best="";
+		int maxCount = -1;
+		for (String s: lastNameCount.keySet()) {
+			if (lastNameCount.get(s) > maxCount) {
+				maxCount = lastNameCount.get(s);
+				best = s;
+			}
+		}
+		return best;
 	}
 
 	public String mostPopularSuffix() {
-		return null;
-
+		List<Agent> all = getAllAgents();
+		HashMap<String, Integer> suffixCount = new HashMap<String, Integer>();
+		String[] pieces;
+		String suffix;
+		for (Agent a: all) {
+			pieces = a.getName().split(" ");
+			if (pieces.length == 3) {
+				suffix = pieces[2];
+				if (!suffixCount.containsKey(suffix)) {
+					suffixCount.put(suffix, 1);
+				} else {
+					suffixCount.put(suffix, suffixCount.get(suffix)+1);
+				}
+			}
+		}
+		String best="";
+		int maxCount = -1;
+		for (String s: suffixCount.keySet()) {
+			if (suffixCount.get(s) > maxCount) {
+				maxCount = suffixCount.get(s);
+				best = s;
+			}
+		}
+		return best;
 	}
 }
