@@ -2,6 +2,7 @@ package com.statefarm.codingcomp.agent;
 
 import java.util.List;
 import java.util.Map;
+import java.util.stream.Collectors;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
@@ -9,6 +10,7 @@ import org.springframework.stereotype.Component;
 import com.statefarm.codingcomp.bean.Agent;
 import com.statefarm.codingcomp.bean.USState;
 import com.statefarm.codingcomp.utilities.SFFileReader;
+import com.statefarm.codingcomp.agent.AgentParser;
 
 /**
  * Only US Agents are applicable since State Farm is currently in the process of
@@ -20,7 +22,7 @@ public class AgentLocator {
 	private AgentParser agentParser;
 
 	@Autowired
-	private SFFileReader sfFileReader;
+	private SFFileReader sfFileReader = new SFFileReader();
 
 	/**
 	 * Find agents where the URL of their name contains the firstName and
@@ -32,7 +34,7 @@ public class AgentLocator {
 	 * @return
 	 */
 	public List<Agent> getAgentsByName(String firstName, String lastName) {
-		return null;
+            return sfFileReader.findAgentFiles().stream().filter(s -> s.indexOf(firstName + "-" + lastName) != -1).map(s -> (new AgentParser()).parseAgent(s)).collect(Collectors.toList());
 	}
 
 	/**
