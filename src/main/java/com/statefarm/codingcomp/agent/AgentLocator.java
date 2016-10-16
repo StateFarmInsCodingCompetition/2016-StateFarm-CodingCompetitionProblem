@@ -43,20 +43,8 @@ public class AgentLocator {
 		// I'm assuming sfFileReader somehow gets filenames; then I'm getting all the agents with agentParser
 		for(Agent a: all){
 			
-			String[] aName = a.getName().split(" ");
-			String first = "";
-			String last = "";
-			int i = 0;
-			while(!aName[i].equals(" ")){
-				first += aName[i];
-				i++;
-			}
-			for(int j = i+1; j < aName.length; j++){
-				last += aName[j];
-			}
-			
 			// what's last name??
-			if(first.equals(firstName) && last.equals(lastName)){
+			if(a.getName().equals(firstName) && ){
 				AgentsByName.add(a);
 			}
 			
@@ -92,9 +80,8 @@ public class AgentLocator {
 		for (String fileName: sfFileReader.findAgentFiles()){
 			allAgents.add(agentParser.parseAgent(fileName));	
 		}
-		System.out.println(allAgents.size());
 		return allAgents;
-	}
+	} 
 
 	public Map<String, List<Agent>> getAllAgentsByUniqueFullName() {
 		
