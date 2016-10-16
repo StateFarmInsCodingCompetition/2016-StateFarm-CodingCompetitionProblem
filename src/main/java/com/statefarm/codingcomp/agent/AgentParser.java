@@ -62,27 +62,34 @@ public class AgentParser {
 		String streetAddr = addr.first().getElementById("locStreetContent_mainLocContent").html();
 		String[] streetAddrSplit = streetAddr.split("<br>", 2);
 		String line1 = streetAddrSplit[0];
-		String line2 = streetAddrSplit.length > 1 ? streetAddrSplit[1] : null ;
+		String line2 = streetAddrSplit.length > 1 ? streetAddrSplit[1] : null;
 		address.setLine1(line1);
 		address.setLine2(line2);
 		address.setPostalCode(addr.first().getElementsByAttributeValue("itemprop", "postalcode").first().html());
 		String state = addr.first().getElementsByAttributeValue("itemprop", "addressRegion").first().html();
 		address.setState(USState.valueOf(state));
 		mainLoc.setAddress(address);
-		Set<String> languages = null;
+		
+		Set<String> languages = new HashSet<String>();
+		Elements langs = d.getElementsByAttributeValueContaining("id", "language");
+		for(Element e : langs) {
+			if(e.id().contains("mainLoc") && e.tag().getName().equals("div"))
+				languages.add(e.id().substring(8, e.id().indexOf('_')));
+		}
 		mainLoc.setLanguages(languages);
-		List<String> officeHours = null;
+		
+		Elements hours = d.getElementsByAttributeValue("itemprop", "openingHours");
+		List<String> officeHours = new ArrayList<String>();
+		for(Element e : hours) {
+			if(e.id().contains("mainLoc"))
+				officeHours.add(e.html());
+		}
 		mainLoc.setOfficeHours(officeHours);
-		String phoneNumber = null;
+		
+		String phoneNumber = d.getElementById("offNumber_mainLocContent").getElementsByTag("span").last().html();
 		mainLoc.setPhoneNumber(phoneNumber);
-
-		Office secondLoc = new Office();
-
-		mainLoc.setAddress(address);
-		mainLoc.setLanguages(languages);
-		mainLoc.setOfficeHours(officeHours);
-		mainLoc.setPhoneNumber(phoneNumber);
-
+		
+		offices.add(mainLoc);
 		agent.setName(aName);
 		agent.setProducts(products);
 		agent.setOffices(offices);
