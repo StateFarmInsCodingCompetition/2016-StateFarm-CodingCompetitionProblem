@@ -1,5 +1,7 @@
-Team Names:
+Team Names: Antonio Rios
 How many JUnits were you able to get to pass?
+I wasted to much time trying to understand how to use Jsoup to parse the html file.
+I got close, but I did not managed to pass any of the Junit tests.
 
 Document and describe any enhancements included to help the judges properly grade your submission.
 	Step 1:

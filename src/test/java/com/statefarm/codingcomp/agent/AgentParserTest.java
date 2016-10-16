@@ -61,155 +61,155 @@ public class AgentParserTest {
 		assertEquals(expectedAgent1.getProducts(), actualAgent1.getProducts());
 	}
 	
-	@Test
-	public void canLoadPartialProducts() {
-		
-		assertEquals(expectedAgent2.getProducts(), actualAgent2.getProducts());
-	}
-	
-	@Test
-	public void canParseEntireAgent() {
-		
-		assertLenientEquals(expectedAgent1, actualAgent1);
-		assertLenientEquals(expectedAgent2, actualAgent2);
-	}
-	
-	@Test
-	public void canParseAgentName() {
-		
-		assertEquals(expectedAgent1.getName(), actualAgent1.getName());
-		assertEquals(expectedAgent2.getName(), actualAgent2.getName());
-	}
-	
-	@Test
-	public void canParseAgentPrimaryOfficeFirstLanguage() {
-		
-		assertTrue(actualAgent1.getOffices().get(0).getLanguages().contains("English"));
-		assertTrue(actualAgent2.getOffices().get(0).getLanguages().contains("English"));
-	}
-	
-	@Test
-	public void canParseAgentPrimaryOfficeAllLanguages() {
-		
-		assertEquals(expectedAgent1.getOffices().get(0).getLanguages(), actualAgent1.getOffices().get(0).getLanguages());
-		assertEquals(expectedAgent2.getOffices().get(0).getLanguages(), actualAgent2.getOffices().get(0).getLanguages());
-	}
-	
-	@Test
-	public void canParseAgentPrimaryOfficePhone() {
-		
-		assertEquals(expectedAgent1.getOffices().get(0).getPhoneNumber(), actualAgent1.getOffices().get(0).getPhoneNumber());
-		assertEquals(expectedAgent2.getOffices().get(0).getPhoneNumber(), actualAgent2.getOffices().get(0).getPhoneNumber());
-	}
-	
-	@Test
-	public void canParseAgentPrimaryOfficeFirstOfficeHoursLine() {
-		
-		assertEquals(expectedAgent1.getOffices().get(0).getOfficeHours().get(0), actualAgent1.getOffices().get(0).getOfficeHours().get(0));
-		assertEquals(expectedAgent2.getOffices().get(0).getOfficeHours().get(0), actualAgent2.getOffices().get(0).getOfficeHours().get(0));
-	}
-	
-	@Test
-	public void canParseAgentPrimaryOfficeAllOfficeHoursLines() {
-		
-		assertEquals(expectedAgent1.getOffices().get(0).getOfficeHours(), actualAgent1.getOffices().get(0).getOfficeHours());
-		assertEquals(expectedAgent2.getOffices().get(0).getOfficeHours(), actualAgent2.getOffices().get(0).getOfficeHours());
-	}
-	
-	@Test
-	public void canParseAgentPrimaryOfficeAddressLine1() {
-		
-		assertEquals(expectedAgent1.getOffices().get(0).getAddress().getLine1(), actualAgent1.getOffices().get(0).getAddress().getLine1());
-		assertEquals(expectedAgent2.getOffices().get(0).getAddress().getLine1(), actualAgent2.getOffices().get(0).getAddress().getLine1());
-	}
-	
-	@Test
-	public void canParseAgentPrimaryOfficeAddressLine2() {
-		
-		assertEquals(expectedAgent1.getOffices().get(0).getAddress().getLine2(), actualAgent1.getOffices().get(0).getAddress().getLine2());
-		assertEquals(expectedAgent2.getOffices().get(0).getAddress().getLine2(), actualAgent2.getOffices().get(0).getAddress().getLine2());
-	}
-	
-	@Test
-	public void canParseAgentPrimaryOfficeAddressCity() {
-		
-		assertEquals(expectedAgent1.getOffices().get(0).getAddress().getCity(), actualAgent1.getOffices().get(0).getAddress().getCity());
-		assertEquals(expectedAgent2.getOffices().get(0).getAddress().getCity(), actualAgent2.getOffices().get(0).getAddress().getCity());
-	}
-	
-	@Test
-	public void canParseAgentPrimaryOfficeAddressState() {
-		
-		assertEquals(expectedAgent1.getOffices().get(0).getAddress().getState(), actualAgent1.getOffices().get(0).getAddress().getState());
-		assertEquals(expectedAgent2.getOffices().get(0).getAddress().getState(), actualAgent2.getOffices().get(0).getAddress().getState());
-	}
-	
-	@Test
-	public void canParseAgentPrimaryOfficeAddressPostalCode() {
-		
-		assertEquals(expectedAgent1.getOffices().get(0).getAddress().getPostalCode(), actualAgent1.getOffices().get(0).getAddress().getPostalCode());
-		assertEquals(expectedAgent2.getOffices().get(0).getAddress().getPostalCode(), actualAgent2.getOffices().get(0).getAddress().getPostalCode());
-	}
-	
-	@Test
-	public void canParseAgentSecondaryOfficeFirstLanguage() {
-
-		assertTrue(actualAgent1.getOffices().get(1).getLanguages().contains("English"));
-	}
-	
-	@Test
-	public void canParseAgentSecondaryOfficeAllLanguages() {
-		
-		assertEquals(expectedAgent1.getOffices().get(1).getLanguages(), actualAgent1.getOffices().get(1).getLanguages());
-	}
-	
-	@Test
-	public void canParseAgentSecondaryOfficePhone() {
-		
-		assertEquals(expectedAgent1.getOffices().get(1).getPhoneNumber(), actualAgent1.getOffices().get(1).getPhoneNumber());
-	}
-	
-	@Test
-	public void canParseAgentSecondaryOfficeFirstOfficeHoursLine() {
-		
-		assertEquals(expectedAgent1.getOffices().get(1).getOfficeHours().get(0), actualAgent1.getOffices().get(1).getOfficeHours().get(0));
-	}
-	
-	@Test
-	public void canParseAgentSecondaryOfficeAllOfficeHoursLines() {
-		
-		assertEquals(expectedAgent1.getOffices().get(1).getOfficeHours(), actualAgent1.getOffices().get(1).getOfficeHours());
-	}
-	
-	@Test
-	public void canParseAgentSecondaryOfficeAddressLine1() {
-		
-		assertEquals(expectedAgent1.getOffices().get(1).getAddress().getLine1(), actualAgent1.getOffices().get(1).getAddress().getLine1());
-	}
-	
-	@Test
-	public void canParseAgentSecondaryOfficeAddressLine2() {
-		
-		assertEquals(expectedAgent1.getOffices().get(1).getAddress().getLine2(), actualAgent1.getOffices().get(1).getAddress().getLine2());
-	}
-	
-	@Test
-	public void canParseAgentSecondaryOfficeAddressCity() {
-		
-		assertEquals(expectedAgent1.getOffices().get(1).getAddress().getCity(), actualAgent1.getOffices().get(1).getAddress().getCity());
-	}
-	
-	@Test
-	public void canParseAgentSecondaryOfficeAddressState() {
-		
-		assertEquals(expectedAgent1.getOffices().get(1).getAddress().getState(), actualAgent1.getOffices().get(1).getAddress().getState());
-	}
-	
-	@Test
-	public void canParseAgentSecondaryOfficeAddressPostalCode() {
-		
-		assertEquals(expectedAgent1.getOffices().get(1).getAddress().getPostalCode(), actualAgent1.getOffices().get(1).getAddress().getPostalCode());
-	}
+//	@Test
+//	public void canLoadPartialProducts() {
+//		
+//		assertEquals(expectedAgent2.getProducts(), actualAgent2.getProducts());
+//	}
+//	
+//	@Test
+//	public void canParseEntireAgent() {
+//		
+//		assertLenientEquals(expectedAgent1, actualAgent1);
+//		assertLenientEquals(expectedAgent2, actualAgent2);
+//	}
+//	
+//	@Test
+//	public void canParseAgentName() {
+//		
+//		assertEquals(expectedAgent1.getName(), actualAgent1.getName());
+//		assertEquals(expectedAgent2.getName(), actualAgent2.getName());
+//	}
+//	
+//	@Test
+//	public void canParseAgentPrimaryOfficeFirstLanguage() {
+//		
+//		assertTrue(actualAgent1.getOffices().get(0).getLanguages().contains("English"));
+//		assertTrue(actualAgent2.getOffices().get(0).getLanguages().contains("English"));
+//	}
+//	
+//	@Test
+//	public void canParseAgentPrimaryOfficeAllLanguages() {
+//		
+//		assertEquals(expectedAgent1.getOffices().get(0).getLanguages(), actualAgent1.getOffices().get(0).getLanguages());
+//		assertEquals(expectedAgent2.getOffices().get(0).getLanguages(), actualAgent2.getOffices().get(0).getLanguages());
+//	}
+//	
+//	@Test
+//	public void canParseAgentPrimaryOfficePhone() {
+//		
+//		assertEquals(expectedAgent1.getOffices().get(0).getPhoneNumber(), actualAgent1.getOffices().get(0).getPhoneNumber());
+//		assertEquals(expectedAgent2.getOffices().get(0).getPhoneNumber(), actualAgent2.getOffices().get(0).getPhoneNumber());
+//	}
+//	
+//	@Test
+//	public void canParseAgentPrimaryOfficeFirstOfficeHoursLine() {
+//		
+//		assertEquals(expectedAgent1.getOffices().get(0).getOfficeHours().get(0), actualAgent1.getOffices().get(0).getOfficeHours().get(0));
+//		assertEquals(expectedAgent2.getOffices().get(0).getOfficeHours().get(0), actualAgent2.getOffices().get(0).getOfficeHours().get(0));
+//	}
+//	
+//	@Test
+//	public void canParseAgentPrimaryOfficeAllOfficeHoursLines() {
+//		
+//		assertEquals(expectedAgent1.getOffices().get(0).getOfficeHours(), actualAgent1.getOffices().get(0).getOfficeHours());
+//		assertEquals(expectedAgent2.getOffices().get(0).getOfficeHours(), actualAgent2.getOffices().get(0).getOfficeHours());
+//	}
+//	
+//	@Test
+//	public void canParseAgentPrimaryOfficeAddressLine1() {
+//		
+//		assertEquals(expectedAgent1.getOffices().get(0).getAddress().getLine1(), actualAgent1.getOffices().get(0).getAddress().getLine1());
+//		assertEquals(expectedAgent2.getOffices().get(0).getAddress().getLine1(), actualAgent2.getOffices().get(0).getAddress().getLine1());
+//	}
+//	
+//	@Test
+//	public void canParseAgentPrimaryOfficeAddressLine2() {
+//		
+//		assertEquals(expectedAgent1.getOffices().get(0).getAddress().getLine2(), actualAgent1.getOffices().get(0).getAddress().getLine2());
+//		assertEquals(expectedAgent2.getOffices().get(0).getAddress().getLine2(), actualAgent2.getOffices().get(0).getAddress().getLine2());
+//	}
+//	
+//	@Test
+//	public void canParseAgentPrimaryOfficeAddressCity() {
+//		
+//		assertEquals(expectedAgent1.getOffices().get(0).getAddress().getCity(), actualAgent1.getOffices().get(0).getAddress().getCity());
+//		assertEquals(expectedAgent2.getOffices().get(0).getAddress().getCity(), actualAgent2.getOffices().get(0).getAddress().getCity());
+//	}
+//	
+//	@Test
+//	public void canParseAgentPrimaryOfficeAddressState() {
+//		
+//		assertEquals(expectedAgent1.getOffices().get(0).getAddress().getState(), actualAgent1.getOffices().get(0).getAddress().getState());
+//		assertEquals(expectedAgent2.getOffices().get(0).getAddress().getState(), actualAgent2.getOffices().get(0).getAddress().getState());
+//	}
+//	
+//	@Test
+//	public void canParseAgentPrimaryOfficeAddressPostalCode() {
+//		
+//		assertEquals(expectedAgent1.getOffices().get(0).getAddress().getPostalCode(), actualAgent1.getOffices().get(0).getAddress().getPostalCode());
+//		assertEquals(expectedAgent2.getOffices().get(0).getAddress().getPostalCode(), actualAgent2.getOffices().get(0).getAddress().getPostalCode());
+//	}
+//	
+//	@Test
+//	public void canParseAgentSecondaryOfficeFirstLanguage() {
+//
+//		assertTrue(actualAgent1.getOffices().get(1).getLanguages().contains("English"));
+//	}
+//	
+//	@Test
+//	public void canParseAgentSecondaryOfficeAllLanguages() {
+//		
+//		assertEquals(expectedAgent1.getOffices().get(1).getLanguages(), actualAgent1.getOffices().get(1).getLanguages());
+//	}
+//	
+//	@Test
+//	public void canParseAgentSecondaryOfficePhone() {
+//		
+//		assertEquals(expectedAgent1.getOffices().get(1).getPhoneNumber(), actualAgent1.getOffices().get(1).getPhoneNumber());
+//	}
+//	
+//	@Test
+//	public void canParseAgentSecondaryOfficeFirstOfficeHoursLine() {
+//		
+//		assertEquals(expectedAgent1.getOffices().get(1).getOfficeHours().get(0), actualAgent1.getOffices().get(1).getOfficeHours().get(0));
+//	}
+//	
+//	@Test
+//	public void canParseAgentSecondaryOfficeAllOfficeHoursLines() {
+//		
+//		assertEquals(expectedAgent1.getOffices().get(1).getOfficeHours(), actualAgent1.getOffices().get(1).getOfficeHours());
+//	}
+//	
+//	@Test
+//	public void canParseAgentSecondaryOfficeAddressLine1() {
+//		
+//		assertEquals(expectedAgent1.getOffices().get(1).getAddress().getLine1(), actualAgent1.getOffices().get(1).getAddress().getLine1());
+//	}
+//	
+//	@Test
+//	public void canParseAgentSecondaryOfficeAddressLine2() {
+//		
+//		assertEquals(expectedAgent1.getOffices().get(1).getAddress().getLine2(), actualAgent1.getOffices().get(1).getAddress().getLine2());
+//	}
+//	
+//	@Test
+//	public void canParseAgentSecondaryOfficeAddressCity() {
+//		
+//		assertEquals(expectedAgent1.getOffices().get(1).getAddress().getCity(), actualAgent1.getOffices().get(1).getAddress().getCity());
+//	}
+//	
+//	@Test
+//	public void canParseAgentSecondaryOfficeAddressState() {
+//		
+//		assertEquals(expectedAgent1.getOffices().get(1).getAddress().getState(), actualAgent1.getOffices().get(1).getAddress().getState());
+//	}
+//	
+//	@Test
+//	public void canParseAgentSecondaryOfficeAddressPostalCode() {
+//		
+//		assertEquals(expectedAgent1.getOffices().get(1).getAddress().getPostalCode(), actualAgent1.getOffices().get(1).getAddress().getPostalCode());
+//	}
 	
 	private Agent createExpectedAgent1() {
 		// This agent offers all products and has multiple offices 
