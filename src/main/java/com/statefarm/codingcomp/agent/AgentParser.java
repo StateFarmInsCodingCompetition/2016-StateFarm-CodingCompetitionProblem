@@ -122,7 +122,7 @@ public class AgentParser {
 		Elements languageElements = subPanelElement.getElementsByTag("li");
 		for (Element element: languageElements) {
 			String text = element.text();
-			if (text.equals("EspaÃ±ol"))
+			if (text.equals("Español"))
 				languageSet.add("Spanish");
 			else
 				languageSet.add(element.text());

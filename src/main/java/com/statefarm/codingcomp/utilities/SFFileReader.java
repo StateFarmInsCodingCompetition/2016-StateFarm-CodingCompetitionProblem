@@ -19,7 +19,7 @@ import org.springframework.stereotype.Component;
 @Component
 public class SFFileReader {
 	@Autowired
-	private String stateFarmFilesPath;
+	private String stateFarmFilesPath = "C:\\Users\\Raajesh\\www.statefarm.com\\www.statefarm.com";
 
 	private static final String FSLASH = "\\/";
 	private static final String BSLASH = "\\\\";
