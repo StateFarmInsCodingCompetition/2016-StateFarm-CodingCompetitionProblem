@@ -34,12 +34,14 @@ public class AgentLocator {
 	 */
 	public List<Agent> getAgentsByName(String firstName, String lastName) {
 		
-		AgentParser ag = new AgentParser();
+		// AgentParser ag = new AgentParser();
+		
+		List<Agent> all = getAllAgents();
+		
 		List<Agent> AgentsByName = new ArrayList<Agent>();
 		
 		// I'm assuming sfFileReader somehow gets filenames; then I'm getting all the agents with agentParser
-		for(fileName: ????){
-			Agent a = ag.parseAgent(fileName);
+		for(Agent a: all){
 			
 			// what's last name??
 			if(a.getName().equals(firstName) && ){
@@ -58,8 +60,12 @@ public class AgentLocator {
 	 * @return
 	 */
 	public List<Agent> getAgentsByState(USState state) {
-		AgentParser ag = new AgentParser();
+		// AgentParser ag = new AgentParser();
 		List<Agent> AgentsByState = new ArrayList<Agent>();
+		
+		List<Agent> all = getAllAgents();
+		
+		
 		
 		return AgentsByState;
 	}
@@ -86,12 +92,14 @@ public class AgentLocator {
 	public String mostPopularFirstName() {
 		
 		HashMap<String, Integer> nameN = new HashMap<String, Integer>();
+		
+		List<Agent> all = getAllAgents();
 		// Where do the names come from?
-		for(String s: names...){
-			if(nameN.containsKey(s)){
-				nameN.put(s, nameN.get(s)+1);
+		for(Agent a: all){
+			if(nameN.containsKey(a.getName())){
+				nameN.put(a.getName(), nameN.get(a.getName())+1);
 			}else{
-				nameN.put(s, 1);
+				nameN.put(a.getName(), 1);
 			}
 		}
 		
