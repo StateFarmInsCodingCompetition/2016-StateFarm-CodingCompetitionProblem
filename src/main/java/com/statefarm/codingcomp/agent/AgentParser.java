@@ -34,19 +34,23 @@ public class AgentParser {
 		Element productList = elems.get(0);
 		Elements products = productList.getElementsByTag("li");
 		
-
+		//get agents products
 		Set<Product> prodSet = new HashSet<Product>();
 		for (int i = 0; i < products.size(); i++) {
 			prodSet.add(Product.fromValue(products.get(i).text()));
 		}
 		agent.setProducts(prodSet);
+		//finish products
 		
-		String address = doc.getElementById("locStreetContent_mainLocContent").text();
 		
-		
-		Office office = new Office();
-		office.setAddress(address);
-		
+		//get whole address 
+		Element address = doc.getElementById("itemprop=address");
+		Element divContainStreet = elems.get(0);
+		//gets street address
+		Elements street = divContainStreet.getElementsByTag("span");
+		String lines = street.get(0).text();
+		//
+	
 		
 		//agent.setOffices(offices);
 
