@@ -1,9 +1,10 @@
-Team Names:
+Team Names: Austin Lowell, David Burgos
 How many JUnits were you able to get to pass?
+19
 
 Document and describe any enhancements included to help the judges properly grade your submission.
-	Step 1:
-	Step 2: 
+	Step 1: Weird bracket issue with office hours - shouldnt be brackets at all?
+	Step 2:  Didn't have time
 	
 	
 Feedback for the coding competition?  Things you would like to see in future events?  
