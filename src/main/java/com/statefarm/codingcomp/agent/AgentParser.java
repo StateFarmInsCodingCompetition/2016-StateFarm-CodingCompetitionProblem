@@ -12,8 +12,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.cache.annotation.Cacheable;
 import org.springframework.stereotype.Component;
 
-import com.statefarm.codingcomp.bean.Agent;
-import com.statefarm.codingcomp.bean.Product;
+import com.statefarm.codingcomp.bean.*;
 import com.statefarm.codingcomp.utilities.SFFileReader;
 
 @Component
@@ -35,6 +34,29 @@ public class AgentParser {
 			products.add(Product.fromValue(e.text()));
 		}
 		a.setProducts(products);
+		
+		// get the office information
+		// primary office
+		Office primary = new Office();
+		Address primAddress = new Address();
+		Elements elem = doc.getElementsByAttributeValue("")
+		primAddress.setLine1("first line");
+		primAddress.setLine2("second line");
+		primAddress.setState(USState.fromValue("state"));
+		primAddress.setCity("city");
+		primAddress.setPostalCode("postal code");
+		primary.setAddress(primAddress);
+		
+		// secondary office
+		Office secondary = new Office();
+		Address secAddress = new Address();
+		secAddress.setLine1("first line");
+		secAddress.setLine2("second line");
+		secAddress.setState(USState.fromValue("state"));
+		secAddress.setCity("city");
+		secAddress.setPostalCode("postal code");
+		secondary.setAddress(secAddress);
+		
 		
 		// return finished agent
 		return a;
