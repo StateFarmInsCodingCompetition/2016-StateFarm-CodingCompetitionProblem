@@ -44,7 +44,7 @@ public class AgentLocator {
 		for(Agent a: all){
 			
 			String[] aName = a.getName().split(" ");
-			if (aName[0].equals(firstName) && aName[1].equals(lastName))
+			if ((aName[0].equals(firstName) || firstName == "") && (aName[1].equals(lastName) || lastName == ""))
 				AgentsByName.add(a);
 			
 		}
