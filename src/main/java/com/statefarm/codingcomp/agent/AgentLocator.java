@@ -35,7 +35,14 @@ public class AgentLocator {
 	public List<Agent> getAgentsByName(String firstName, String lastName) {
 		List<Agent> AgentsByName = new ArrayList<Agent>();
 		
-		return null;
+		// I'm assuming sfFileReader somehow gets filenames; then I'm getting all the agents with agentParser
+		for(fileName: ????){
+			Agent a = agentParser.parseAgent(fileName);
+			
+			
+		}
+		
+		return AgentsByName;
 	}
 
 	/**
@@ -51,7 +58,13 @@ public class AgentLocator {
 	}
 
 	public List<Agent> getAllAgents() {
-		return null;
+		List<Agent> allAgents = new ArrayList<Agent>();
+		
+		// I'm assuming sfFileReader somehow gets filenames; then I'm getting all the agents with agentParser
+		for(fileName: ????){
+			allAgents.add(agentParser.parseAgent(fileName));
+	
+		}
 	}
 
 	public Map<String, List<Agent>> getAllAgentsByUniqueFullName() {
