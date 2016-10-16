@@ -61,6 +61,7 @@ public class AgentParser {
 				address.setLine1(addrLines[0].trim());
 				address.setLine2(addrLines[1].trim());
 			} else {
+				System.out.println(addrLines.length);
 				System.out.println("Unexpected address!");
 			}
 			//City for main Location

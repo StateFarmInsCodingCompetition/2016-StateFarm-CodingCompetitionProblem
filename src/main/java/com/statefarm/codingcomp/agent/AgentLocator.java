@@ -1,5 +1,6 @@
 package com.statefarm.codingcomp.agent;
 
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
 
@@ -32,10 +33,17 @@ public class AgentLocator {
 	 * @return
 	 */
 	public List<Agent> getAgentsByName(String firstName, String lastName) {
-		for (String s : sfFileReader.findAgentFiles()) {
-			System.out.println(s);
+		System.out.println("hey");
+		List<String> myList = sfFileReader.findHtmlFiles();
+		List<Agent> myAgents = new ArrayList<Agent>();
+		for(String str: myList) {
+		    if((str.trim().contains(firstName + "-")) && (str.trim().contains("-" + lastName))){
+		    	System.out.println(str);
+		    	myAgents.add(agentParser.parseAgent(str));
+		    }
+		       //return str;
 		}
-		return null;
+		return myAgents;
 	}
 
 	/**
