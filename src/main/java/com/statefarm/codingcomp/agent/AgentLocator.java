@@ -37,7 +37,7 @@ public class AgentLocator {
 		List<Agent> agentList = new ArrayList<Agent>();
 		for (String agent : agents) {
 			String name = agentParser.parseAgent(agent).getName();
-			if (name.equals(firstName.concat(" ".concat(lastName)))) {
+			if (name.equals(firstName)) {
 				agentList.add(agentParser.parseAgent(agent));
 			}
 		}

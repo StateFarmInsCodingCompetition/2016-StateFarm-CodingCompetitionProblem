@@ -43,13 +43,14 @@ public class AgentParser {
 		agent.setProducts(prodSet);
 		//finish products
 		
+		agent.setName(doc.getElementsByAttributeValue("itemprop","name").text());
 		
 		//get whole address 
-		Element address = doc.getElementById("itemprop=address");
+		/*Element address = doc.getElementById("itemprop=address");
 		Element divContainStreet = elems.get(0);
 		//gets street address
 		Elements street = divContainStreet.getElementsByTag("span");
-		String lines = street.get(0).text();
+		String lines = street.get(0).text();*/
 		//
 	
 		
