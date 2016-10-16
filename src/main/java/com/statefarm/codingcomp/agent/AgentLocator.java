@@ -68,7 +68,11 @@ public class AgentLocator {
         }
         return agentsByState;
 	}
-
+	/**
+	 * gets a list of all agents
+	 * 
+	 * @return a list of all agents
+	 */
 	public List<Agent> getAllAgents() {
 		List<String> agentFiles = sfFileReader.findAgentFiles();
 		List<Agent> agents = new ArrayList<Agent>();
@@ -77,7 +81,11 @@ public class AgentLocator {
 		}
 		return agents;
 	}
-	
+	/**
+	 * map all unique full names to agent objects
+	 * 
+	 * @return a map of all unique full names to agents
+	 */
 	public Map<String, List<Agent>> getAllAgentsByUniqueFullName() {
         List<Agent> allAgents = getAllAgents();
         Map<String, List<Agent>> map = new HashMap<String, List<Agent>>();
@@ -92,7 +100,11 @@ public class AgentLocator {
         }
         return map;
 	}
-
+	/**
+	 * find the most popular first name out of all agents
+	 * 
+	 * @return The most popular first name
+	 */
 	public String mostPopularFirstName() {
 		List<Agent> allAgents = getAllAgents();
 		Map<String, Integer> map = new HashMap<String, Integer>();
@@ -114,7 +126,11 @@ public class AgentLocator {
 		 }
 		return maxEntry;
 	}
-
+	/**
+	 * find the most popular last name out of all agents
+	 * 
+	 * @return The most popular last name
+	 */
 	public String mostPopularLastName() {
 		List<Agent> allAgents = getAllAgents();
 		Map<String, Integer> map = new HashMap<String, Integer>();
@@ -137,7 +153,11 @@ public class AgentLocator {
 		return maxEntry;
 
 	}
-
+	/**
+	 * find the most popular suffix name out of all agents
+	 * 
+	 * @return The most popular suffix name
+	 */
 	public String mostPopularSuffix() {
 		List<Agent> allAgents = getAllAgents();
 		Map<String, Integer> map = new HashMap<String, Integer>();
