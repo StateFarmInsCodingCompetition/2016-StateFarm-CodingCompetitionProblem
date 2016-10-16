@@ -1,4 +1,5 @@
-Team Names:
+Team Names: Joshua Koh, Andrew Oliveria
+
 How many JUnits were you able to get to pass?
 
 Document and describe any enhancements included to help the judges properly grade your submission.
