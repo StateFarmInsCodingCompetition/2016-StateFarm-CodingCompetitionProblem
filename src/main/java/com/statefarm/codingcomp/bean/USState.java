@@ -46,7 +46,7 @@ public enum USState {
 	TN("Tennessee"),
 	TX("Texas"),
 	UT("Utah"),
-	VT("Vermont"),
+	VT(" Vermont"),
 	VA("Virginia"),
 	WA("Washington"),
 	DC("Washington D.C."),
