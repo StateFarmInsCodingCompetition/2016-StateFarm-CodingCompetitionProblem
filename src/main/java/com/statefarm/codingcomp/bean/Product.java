@@ -26,6 +26,7 @@ public enum Product {
 	 */
 	public static Product fromValue(String textValue) {
 		for(Product p : values()) {
+			
 			if(p.value.equalsIgnoreCase(textValue)) {
 				return p;
 			}

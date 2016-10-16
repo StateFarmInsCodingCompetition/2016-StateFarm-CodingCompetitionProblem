@@ -45,6 +45,7 @@ public class AgentParserTest {
 	@Before
 	public void setup() {
 		kevinParksWebsitePath = Paths.get("src", "test", "resources", "KevinParks.html").toString();
+		agentParser.parseAgent(kevinParksWebsitePath);
 		debbiePeckWebsitePath = Paths.get("src", "test", "resources", "DebbiePeck.html").toString();
 		
 		expectedAgent1 = createExpectedAgent1();
