@@ -79,7 +79,18 @@ public class AgentLocator {
 	}
 	
 	public Map<String, List<Agent>> getAllAgentsByUniqueFullName() {
-		return null;
+        List<Agent> allAgents = getAllAgents();
+        Map<String, List<Agent>> map = new HashMap<String, List<Agent>>();
+        for(Agent a: allAgents) {
+             if(map.containsKey(a.getName())) {
+                 map.get(a.getName()).add(a);
+             } else {
+                 List<Agent> list = new ArrayList<Agent>();
+                 list.add(a);
+                 map.put(a.getName(), list);
+             }
+        }
+        return map;
 	}
 
 	public String mostPopularFirstName() {
