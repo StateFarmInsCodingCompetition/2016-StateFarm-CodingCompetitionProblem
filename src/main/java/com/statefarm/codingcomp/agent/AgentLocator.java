@@ -1,5 +1,10 @@
 package com.statefarm.codingcomp.agent;
 
+import java.nio.file.DirectoryIteratorException;
+import java.nio.file.DirectoryStream;
+import java.nio.file.Files;
+import java.nio.file.Path;
+import java.nio.file.Paths;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
@@ -55,7 +60,25 @@ public class AgentLocator {
 	 * @return
 	 */
 	public List<Agent> getAgentsByState(USState state) {
-		return null;
+		List<Agent> agentList = new ArrayList<Agent>();
+		agentParser = new AgentParser();
+		Path dir = Paths.get("www.statefarm.com", "agent", "US", state.toString());
+		try (DirectoryStream<Path> stream = Files.newDirectoryStream(dir)) {
+		    for (Path file: stream) {
+		    	if (Files.isDirectory(file)) {
+		    		DirectoryStream<Path> innerStream = Files.newDirectoryStream(file);
+		    		for (Path innerFile: innerStream) {
+		    			String pathString = innerFile.toString();
+		    			Agent tempAgent = agentParser.parseAgent(pathString);
+		    			agentList.add(tempAgent);
+		    		}
+		    			
+		    	}
+		    }
+		} catch (Exception e) {
+		   // System.err.println(x);
+		}
+		return agentList;
 	}
 
 	public List<Agent> getAllAgents() {
