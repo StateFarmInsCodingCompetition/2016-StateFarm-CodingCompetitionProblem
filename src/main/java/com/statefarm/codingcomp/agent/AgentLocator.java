@@ -1,8 +1,8 @@
 package com.statefarm.codingcomp.agent;
 
-import java.util.ArrayList;
-import java.util.List;
-import java.util.Map;
+import java.util.*;
+// import java.util.List;
+// import java.util.Map;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
@@ -39,6 +39,10 @@ public class AgentLocator {
 		for(fileName: ????){
 			Agent a = agentParser.parseAgent(fileName);
 			
+			// what's last name??
+			if(a.getName().equals(firstName) && ){
+				AgentsByName.add(a);
+			}
 			
 		}
 		
@@ -54,7 +58,7 @@ public class AgentLocator {
 	public List<Agent> getAgentsByState(USState state) {
 		List<Agent> AgentsByState = new ArrayList<Agent>();
 		
-		return null;
+		return AgentsByState;
 	}
 
 	public List<Agent> getAllAgents() {
@@ -62,12 +66,16 @@ public class AgentLocator {
 		
 		// I'm assuming sfFileReader somehow gets filenames; then I'm getting all the agents with agentParser
 		for(fileName: ????){
-			allAgents.add(agentParser.parseAgent(fileName));
-	
+			allAgents.add(agentParser.parseAgent(fileName));	
 		}
+		
+		return allAgents;
 	}
 
 	public Map<String, List<Agent>> getAllAgentsByUniqueFullName() {
+		
+		HashMap names = new HashMap<String, List<Agent>>();
+		
 		return null;
 	}
 
