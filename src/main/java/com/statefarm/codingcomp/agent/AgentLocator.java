@@ -32,6 +32,9 @@ public class AgentLocator {
 	 * @return
 	 */
 	public List<Agent> getAgentsByName(String firstName, String lastName) {
+		for (String s : sfFileReader.findAgentFiles()) {
+			System.out.println(s);
+		}
 		return null;
 	}
 

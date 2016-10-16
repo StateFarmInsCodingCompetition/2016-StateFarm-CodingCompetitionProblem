@@ -1,4 +1,7 @@
 package com.statefarm.codingcomp.bean;
+import java.util.EnumSet;
+
+import javax.swing.JComboBox.KeySelectionManager;
 
 public enum USState {
 	
@@ -72,6 +75,15 @@ public enum USState {
 	public static USState fromValue(String textValue) {
 		for(USState s : values()) {
 			if(s.value.equalsIgnoreCase(textValue)) {
+				return s;
+			}
+		}
+		return null;
+	}
+	
+	public static USState fromKey(String textValue) {
+		for (USState s : EnumSet.allOf(USState.class)) {
+			if (s.toString().equals(textValue)) {
 				return s;
 			}
 		}
