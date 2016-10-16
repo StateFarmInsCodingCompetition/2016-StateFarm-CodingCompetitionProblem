@@ -17,7 +17,7 @@ import com.statefarm.codingcomp.bean.Product;
 import com.statefarm.codingcomp.utilities.SFFileReader;
 
 @Component
-public class AgentParser {
+public class AgentParser { 
 	@Autowired
 	private SFFileReader sfFileReader;
 
