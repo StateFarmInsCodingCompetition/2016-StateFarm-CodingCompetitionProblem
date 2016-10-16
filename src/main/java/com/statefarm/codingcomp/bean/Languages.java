@@ -26,7 +26,6 @@ public class Languages {
 	}
 	
 	public static String getEnglishLang(String key) {
-		System.out.println(key);
 		return langMap.get(key);
 	}
 }
