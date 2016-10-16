@@ -14,6 +14,7 @@ public class AgentParser {
 
 	@Cacheable(value = "agents")
 	public Agent parseAgent(String fileName) {
-		return null;
+            Agent out = new Agent();
+            out.
 	}
 }
