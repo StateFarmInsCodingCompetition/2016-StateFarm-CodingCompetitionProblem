@@ -1,10 +1,20 @@
 Team Names:
+Justin Yang
+University of Illinois at Urbana–Champaign
+
 How many JUnits were you able to get to pass?
+11
 
 Document and describe any enhancements included to help the judges properly grade your submission.
-	Step 1:
+	Step 1: Imported
+java.util.ArrayList
+java.util.List
+java.util.regex.Matcher
+java.util.regex.Pattern
+in AgentParser.java
 	Step 2: 
 	
-	
+
 Feedback for the coding competition?  Things you would like to see in future events?  
+Liked it.
 	*You have the option to send feedback to codingcompetition@statefarm.com after the competition if you are running short on time.
