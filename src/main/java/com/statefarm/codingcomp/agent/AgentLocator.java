@@ -57,7 +57,12 @@ public class AgentLocator {
 	}
 
 	public List<Agent> getAllAgents() {
-		return null;
+		List<String> agents = sfFileReader.findAgentFiles();
+		List<Agent> agentList = new ArrayList<Agent>();
+		for (String agent : agents) {
+			agentList.add(agentParser.parseAgent(agent));
+		}
+		return agentList;
 	}
 
 	public Map<String, List<Agent>> getAllAgentsByUniqueFullName() {

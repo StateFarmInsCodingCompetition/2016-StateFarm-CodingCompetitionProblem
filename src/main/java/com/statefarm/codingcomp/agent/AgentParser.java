@@ -3,8 +3,10 @@ package com.statefarm.codingcomp.agent;
 
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.forwardedUrl;
 
+import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.HashSet;
+import java.util.List;
 import java.util.Set;
 import java.util.TreeSet;
 
@@ -53,8 +55,13 @@ public class AgentParser {
 		String lines = street.get(0).text();*/
 		//
 	
+		Office office = new Office();
+		Element ns = doc.getElementsByAttributeValue("itemprop","telephone").get(0).getElementsByTag("span").get(1);
 		
-		//agent.setOffices(offices);
+		office.setPhoneNumber(ns.text());
+		List<Office> ofs = new ArrayList<Office>();
+		ofs.add(office);
+		agent.setOffices(ofs);
 
 		return agent;
 	}
