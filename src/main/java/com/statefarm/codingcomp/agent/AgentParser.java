@@ -33,13 +33,14 @@ public class AgentParser {
 
 	@Cacheable(value = "agents")
 	public Agent parseAgent(String fileName) {
+		// Singleton instance of Languages to convert native language names to English language names
 		Languages.getInstance();
 		
 		Agent agent = new Agent();
 		File input = new File(fileName);
+		
 		try {
 			Document doc = Jsoup.parse(input, "UTF-8", "");
-//			doc.select("br").append(DELIMITER);
 			agent.setName(doc.select("span[itemprop$=name]").text());
 			
 			// Set agent products
@@ -54,16 +55,14 @@ public class AgentParser {
 			
 			// Set office address
 			Address address = new Address();
+			//Street for main location
 			String[] addrLines = doc.select("span[id=locStreetContent_mainLocContent]").html().replace(",", "").split(DELIMITER);
 			if (addrLines.length == 1) {
 				address.setLine1(addrLines[0].trim());
-			} else if (addrLines.length == 2) {
+			} else if (addrLines.length >= 2) {
 				address.setLine1(addrLines[0].trim());
 				address.setLine2(addrLines[1].trim());
-			} else {
-				System.out.println(addrLines.length);
-				System.out.println("Unexpected address!");
-			}
+			} 
 			//City for main Location
 			address.setCity(doc.select("span[itemprop=addressLocality]").text().split(",")[0].trim());
 			//State for first location
@@ -72,9 +71,8 @@ public class AgentParser {
 			address.setPostalCode(doc.select("span[itemprop=postalCode]").text().split(" ")[0]);
 			office.setAddress(address);
 
-			// Set office langs
+			// Set office languages
 			Set<String> languages = new HashSet<String>();
-			
 			Elements langElements = doc.select("div[id$=panelmainLocation] > div.span5 > ul > li");
 			for (Element e : langElements) {
 				languages.add(Languages.getEnglishLang(e.text()));
@@ -94,25 +92,24 @@ public class AgentParser {
 			}
 			office.setOfficeHours(officeHours);
 			
-			// Set agent office
+			// Assign office to agent
 			List<Office> offices = new ArrayList<Office>();
 			offices.add(office);
 						
-			// Set office second if it exists
+			// Set secondary office if it exists... pardon bad variable names
 			if (!StringUtils.isEmpty(doc.select("span[id=locStreetContent_additionalLocContent_0]").html())) {
 				Office secondary = new Office();
 				Address address2 = new Address();
 				
+				//Street for second location
 				String[] addrLines2 = doc.select("span[id=locStreetContent_additionalLocContent_0]").html().replace(",", "").split(DELIMITER);
 				if (addrLines2.length == 1) {
 					address2.setLine1(addrLines2[0].trim());
-				} else if (addrLines2.length == 2) {
+				} else if (addrLines2.length >= 2) {
 					address2.setLine1(addrLines2[0].trim());
 					address2.setLine2(addrLines2[1].trim());
-				} else {
-					System.out.println("Unexpected secondary address!");
 				}
-				//City for secondary Location
+				//City for second location
 				address2.setCity(doc.select("span[itemprop=addressLocality]").text().split(",")[1].trim());
 				//State for second location
 				address2.setState(USState.fromKey(doc.select("span[itemprop=addressRegion]").text().split(" ")[1]));
@@ -120,9 +117,8 @@ public class AgentParser {
 				address2.setPostalCode(doc.select("span[itemprop=postalCode]").text().split(" ")[1]);
 				secondary.setAddress(address2);
 
-				// Set office langs
+				// Set office languages
 				Set<String> languages2 = new HashSet<String>();
-				
 				Elements langElements2 = doc.select("div[id$=panelmainLocation] > div.span5 > ul > li");
 				for (Element e : langElements2) {
 					languages2.add(Languages.getEnglishLang(e.text()));
@@ -145,9 +141,11 @@ public class AgentParser {
 				offices.add(secondary);
 			}
 			
+			// Assign offices to agent
 			agent.setOffices(offices);
 			
 		} catch (IOException e) {
+			System.out.println("HTML file for agent could not be read!");
 			e.printStackTrace();
 		}
 		

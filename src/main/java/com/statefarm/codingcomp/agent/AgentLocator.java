@@ -94,17 +94,72 @@ public class AgentLocator {
 	}
 
 	public String mostPopularFirstName() {
-		return null;
-
+		List<Agent> allAgents = getAllAgents();
+		Map<String, Integer> map = new HashMap<String, Integer>();
+        for (Agent a : allAgents) {
+		     String firstname = a.getName().trim().split(" ")[0];
+		     if (map.containsKey(a.getName().trim().split(" ")[0])) {
+		         map.put(firstname, map.get(firstname) + 1);
+		     } else {
+		         map.put(firstname, 1);
+		     }
+		 }
+		 String maxEntry = null;
+		
+		 for (String entry : map.keySet())
+		 {
+		     if (maxEntry == null || map.get(entry).compareTo(map.get(maxEntry)) > 0) {
+		         maxEntry = entry;
+		     }
+		 }
+		return maxEntry;
 	}
 
 	public String mostPopularLastName() {
-		return null;
+		List<Agent> allAgents = getAllAgents();
+		Map<String, Integer> map = new HashMap<String, Integer>();
+        for (Agent a : allAgents) {
+		     String lastname = a.getName().trim().split(" ")[1];
+		     if (map.containsKey(a.getName().trim().split(" ")[1])) {
+		         map.put(lastname, map.get(lastname) + 1);
+		     } else {
+		         map.put(lastname, 1);
+		     }
+		 }
+		 String maxEntry = null;
+		
+		 for (String entry : map.keySet())
+		 {
+		     if (maxEntry == null || map.get(entry).compareTo(map.get(maxEntry)) > 0) {
+		         maxEntry = entry;
+		     }
+		 }
+		return maxEntry;
 
 	}
 
 	public String mostPopularSuffix() {
-		return null;
-
+		List<Agent> allAgents = getAllAgents();
+		Map<String, Integer> map = new HashMap<String, Integer>();
+        for (Agent a : allAgents) {
+		     String[] suffixList = a.getName().trim().split(" ");
+		     if (suffixList.length >= 3) {
+		    	 String suffix = suffixList[2];
+		    	 if (map.containsKey(a.getName().trim().split(" ")[2])) {
+		    		 map.put(suffix, map.get(suffix) + 1);
+		    	 } else {
+		    		 map.put(suffix, 1);
+		    	 }
+		     }
+		 }
+		 String maxEntry = null;
+		
+		 for (String entry : map.keySet())
+		 {
+		     if (maxEntry == null || map.get(entry).compareTo(map.get(maxEntry)) > 0) {
+		         maxEntry = entry;
+		     }
+		 }
+		return maxEntry;
 	}
 }

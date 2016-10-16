@@ -23,6 +23,7 @@ public class Languages {
 	private static void buildLangMap() {
 		langMap.put("English", "English");
 		langMap.put("Español", "Spanish");
+		langMap.put("Deutsch", "German");
 	}
 	
 	public static String getEnglishLang(String key) {
