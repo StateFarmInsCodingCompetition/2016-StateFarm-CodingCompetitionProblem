@@ -41,19 +41,15 @@ public class AgentParser {
 		}
 		agent.setProducts(prodSet);
 		
-		/*
-		String beginLicense = "Products Offered/Serviced by this Agent\"><div itemprop=\"description\">";
-		String endLicense = "<div id=\"finraContent\"";
-		int startIdx = s.indexOf(beginLicense);  //location of products licensed to sell
-		int endIdx = s.indexOf(endLicense);
-		String list = s.substring(startIdx + beginLicense.length(), endIdx);
-		//Product[] licenses = ; 
-		String list = fStS(s, beginLicense, endLicense);
-		//Set<Product> products = new HashSet<Product>(Arrays.asList(splitUL(list)));
-		Agent agent = new Agent();
-		agent.setProducts(splitUL(list));
-		return agent;
-		*/
+		String address = doc.getElementById("locStreetContent_mainLocContent").text();
+		
+		
+		Office office = new Office();
+		office.setAddress(address);
+		
+		
+		//agent.setOffices(offices);
+
 		return agent;
 	}
 }
