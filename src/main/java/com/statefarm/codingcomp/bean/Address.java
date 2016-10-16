@@ -1,6 +1,13 @@
 package com.statefarm.codingcomp.bean;
 
-public class Address {
+import java.util.List;
+
+import org.jsoup.nodes.Element;
+
+import com.statefarm.codingcomp.agent.Parsable;
+import com.statefarm.codingcomp.agent.ParserUtils;
+
+public class Address implements Parsable{
 	private String line1;
 	private String line2;
 	private String city;
@@ -46,4 +53,19 @@ public class Address {
 	public void setPostalCode(String postalCode) {
 		this.postalCode = postalCode;
 	}
+
+	@Override
+	public void parse(Element element){
+		List<String> addressLines = ParserUtils.getTextFieldsUnderNode(element.getElementsByAttributeValue("itemprop", "streetAddress").first());
+		setLine1(addressLines.get(0).trim().replace(",", ""));
+		if(addressLines.size()>=3) setLine2(addressLines.get(2).trim().replace(",", ""));
+		
+		setCity(ParserUtils.getTextFieldsUnderElementWithItemprop("addressLocality", element).get(0).replace(",", ""));
+		setState(USState.valueOf(ParserUtils.getTextFieldsUnderElementWithItemprop("addressRegion", element).get(0).trim()));
+		setPostalCode(ParserUtils.getTextFieldsUnderElementWithItemprop("postalCode", element).get(0).trim());
+		
+		
+	}
+	
+	
 }
