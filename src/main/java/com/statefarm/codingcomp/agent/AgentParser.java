@@ -32,7 +32,7 @@ public class AgentParser {
 		Document doc = Jsoup.parse(s);
 		Elements elems = doc.getElementsByAttributeValue("itemprop", "description");
 		Element productList = elems.get(0);
-		Elements products = productList.getElementsByClass("li");
+		Elements products = productList.getElementsByTag("li");
 		
 
 		Set<Product> prodSet = new HashSet<Product>();
@@ -55,28 +55,5 @@ public class AgentParser {
 		return agent;
 		*/
 		return agent;
-	}
-	
-	public String fStS(String s, String begin, String end) {
-		int startIdx = s.indexOf(begin);
-		int endIdx = s.indexOf(end);
-		String sub = s.substring(startIdx + begin.length(), endIdx);
-		return sub;
-	}
-	
-	public Set<Product> splitUL(String ul) {
-		ul = ul.trim();
-		ul = ul.replace("<ul>", "").trim();
-		ul = ul.replace("</ul>", "").trim();
-		String[] li = ul.split("<li>");
-		//Product[] li2 = new Product[li.length];
-		Set<Product> li2 = new HashSet<Product>();
-		for (int i = 1; i < li.length; i++) {
-			String str = li[i].replace("</li>", "").trim();
-			Product p = Product.fromValue(str);
-			System.out.print(p.getValue());
-			li2.add(p);
-		}
-		return li2;
 	}
 }
