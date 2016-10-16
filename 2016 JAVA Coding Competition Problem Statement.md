@@ -1,14 +1,14 @@
 # The Problem
 SF Advertising is a small company with the ability to build high-tech programs that scan and evaluate websites.  In addition, they use the scan to provide key statistics.  You are a new hire with the company and have been tasked to review a website and provide an appropriate analysis.  There are some basic requirements that must be followed, but SF Advertising appreciates fresh ideas and will gladly accept additional enhancements.
 
-The initial website “statefarm.com“ is provided in the workspace and is a .zip file that contains a number of .html files.  Please unzip these files in your home directory.   
+The initial website "statefarm.com" is provided in the workspace and is a .7z file that contains a number of .html files.  Please unzip these files in your home directory.   
 Examples:
 
  - Mac: `/Users/username/`   
  - Windows: `C:\users\username\`   
  - Linux: `/home/username/`   
 
-Please scan the website found in the .zip file and provide answers to the following questions/Junits.  You can use the included jsoup framework or another technology of your choice:   
+Please scan the website found in the .7z file and provide answers to the following questions/Junits.  You can use the included jsoup framework or another technology of your choice:   
 
  - AgentParserTest – Complete these tests first.
    - For a specific agent return the products they are licensed to sell
@@ -34,13 +34,13 @@ JUnit tests are the highest authority related to requirements and can be found b
 - We have provided Maven dependency for JUnit 4.  If you are not set up with the recommended IDE (Spring Tool Suite), you may need to add JUnit 4. 
 - If you identify any additional libraries you would like to use, please add them to the pom.xml file or copy the .jar files into the resources folder 
 - Run your JUnit tests, code, and repeat.
-  - For questions on how to run JUnits, please see document in the project:  “How to run JUnits”
+  - For questions on how to run JUnits, please see document in the project:  "How to run JUnits"
 
 ##### When you are done:
 - Update the feedback.txt file and include the following information:
   - Your team – name of each individual participating.
   - How many JUnits you were able to execute successfully.
-  - Document and describe the additional “nice to have” features included, to help the judges properly grade your submission and explain how to properly execute new enhancements.  
+  - Document and describe the additional "nice to have" features included, to help the judges properly grade your submission and explain how to properly execute new enhancements.  
 
 - Push your changes to one single branch for you and your teammate.  Open a single pull request against the main State Farm Coding Competition repository before 11:59PM CST on October 15, 2016.
   - If you make any commits after midnight without prior approval from codingcompetition@statefarm.com, your submission will be disqualified.
@@ -67,7 +67,7 @@ Components of submission will be weighted as follows.
 
 In the event of a tie, we will further judge your solution based on: code cleanliness, maintainability, and adherence to object-orientated principles.  
 
-### Bonus “Nice to have” features  
+### Bonus "Nice to have" features  
 Bonus Credit – Do not complete any bonus features unless you have completed all the required functionality and all JUnits pass.
 - Create additional functionality and demonstrate through a Graphical User Interface (GUI), command line interface, JUnits, or web UI.
   - Search engine
