@@ -33,9 +33,9 @@ public class AgentLocator {
 	 * @return
 	 */
 	public List<Agent> getAgentsByName(String firstName, String lastName) {
-		
+		//String name = 
 		// AgentParser ag = new AgentParser();
-		
+	/*	
 		List<Agent> all = getAllAgents();
 		
 		List<Agent> AgentsByName = new ArrayList<Agent>();
@@ -50,7 +50,8 @@ public class AgentLocator {
 			
 		}
 		
-		return AgentsByName;
+		return AgentsByName;*/
+		return null;
 	}
 
 	/**
@@ -65,28 +66,35 @@ public class AgentLocator {
 		
 		List<Agent> all = getAllAgents();
 		
-		
+		for (Agent a: all) {
+			if (a.getOffices().get(0).getAddress().getState() == state)
+				AgentsByState.add(a);
+		}
 		
 		return AgentsByState;
 	}
 
 	public List<Agent> getAllAgents() {
-		AgentParser ag = new AgentParser();
 		List<Agent> allAgents = new ArrayList<Agent>();
-		
 		// I'm assuming sfFileReader somehow gets filenames; then I'm getting all the agents with agentParser
-		for(fileName: ????){
-			allAgents.add(ag.parseAgent(fileName));	
+		for (String fileName: sfFileReader.findAgentFiles()){
+			allAgents.add(agentParser.parseAgent(fileName));	
 		}
-		
+		System.out.println(allAgents.size());
 		return allAgents;
 	}
 
 	public Map<String, List<Agent>> getAllAgentsByUniqueFullName() {
 		
 		HashMap names = new HashMap<String, List<Agent>>();
-		
-		return null;
+		List<Agent> all = getAllAgents();
+		for (Agent a: all) {
+			if (!names.containsKey(a.getName())) {
+				names.put(a.getName(), new ArrayList<Agent>());
+			}
+			((ArrayList<Agent>)names.get(a.getName())).add(a);
+		}
+		return names;
 	}
 
 	public String mostPopularFirstName() {
