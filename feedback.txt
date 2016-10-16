@@ -1,13 +1,14 @@
 Team Names: Joshua Koh, Andrew Oliveria
 
 How many JUnits were you able to get to pass? 
-We passed all 33 provided JUnits.
+We passed all 33 provided JUnits + 1 custom test.
 
 
 Document and describe any enhancements included to help the judges properly grade your submission.
 1: Created a method in USState.java which can create a USState enum based on abbreviation (USState key) rather than by full state name (USState value).
 2: Created a Singleton class Languages to map a language’s local name (as seen on the webpages) to it’s English name (as desired to pass the tests). Only one map is required, so a Singleton was chosen to implement the mapper.
 3: In AgentParser when setting an agent’s office hours, we used an integer index to obtain all office hours. The lines representing an agent’s office hours were in the form of a repeatable, where there may be a single office hours listed or multiple (the exact number unknown). Using the integer index allowed us to grab them all regardless of type.	
+4: Added an About Me element to each agent based on their html page.
 	
 Feedback for the coding competition?  Things you would like to see in future events?  
 	*You have the option to send feedback to codingcompetition@statefarm.com after the competition if you are running short on time.

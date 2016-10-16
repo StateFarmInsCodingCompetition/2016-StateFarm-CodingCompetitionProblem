@@ -211,6 +211,12 @@ public class AgentParserTest {
 		assertEquals(expectedAgent1.getOffices().get(1).getAddress().getPostalCode(), actualAgent1.getOffices().get(1).getAddress().getPostalCode());
 	}
 	
+	// NEW!
+	@Test
+	public void canParseAgentAbouts() {
+		assertEquals(expectedAgent1.getAbouts().get(1), actualAgent1.getAbouts().get(1));
+	}
+	
 	private Agent createExpectedAgent1() {
 		// This agent offers all products and has multiple offices 
 		// New up the agent
@@ -271,6 +277,15 @@ public class AgentParserTest {
 		offices.add(office2);
 		
 		expectedAgent.setOffices(offices);
+		
+		// NEW! Set abouts
+		List<String> abouts = new ArrayList<String>();
+		abouts.add("Satellite Office - Two Locations to serve you");
+		abouts.add("3rd Generation State Farm Agent in Delta County");
+		abouts.add("Agent Development Program Graduate - 2007");
+		abouts.add("State Farm Agent since 1984");
+		abouts.add("Paonia High School Track Sprint Coach");
+		expectedAgent.setAbouts(abouts);
 		
 		return expectedAgent;
 	}

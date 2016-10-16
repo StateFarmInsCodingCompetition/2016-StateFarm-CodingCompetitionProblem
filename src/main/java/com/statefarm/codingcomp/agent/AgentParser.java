@@ -141,6 +141,14 @@ public class AgentParser {
 				offices.add(secondary);
 			}
 			
+			// Set agent's about
+			List<String> abouts = new ArrayList<String>();
+			Elements aboutElements = doc.select("div[id=aboutMeContent] > ul > li");
+			for (Element e : aboutElements) {
+				abouts.add(e.text());
+			}
+			agent.setAbouts(abouts);
+			
 			// Assign offices to agent
 			agent.setOffices(offices);
 			

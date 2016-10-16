@@ -8,6 +8,7 @@ public class Agent {
 
 	private Set<Product> products;
 	private List<Office> offices;
+	private List<String> abouts;
 
 	public String getName() {
 		return name;
@@ -32,4 +33,12 @@ public class Agent {
 	public void setOffices(List<Office> offices) {
 		this.offices = offices;
 	}	
+	
+	public List<String> getAbouts() {
+        return abouts;
+    }
+
+    public void setAbouts(List<String> abouts) {
+        this.abouts = abouts;
+    }
 }
